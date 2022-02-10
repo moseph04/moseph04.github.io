@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Moetown</title>
+        <style>
+            body {
+                background: rgb(255, 211, 251);
+                color: rgb(255, 250, 183);
+                padding: 10px;
+                font-family: cursive;
+            }
+            #all-contents {
+              max-width: 800px;
+                margin: auto;
+            }
+         
+            /* navigation menu */
+            nav {
+                background: rgb(229, 185, 255);
+               margin: 0 auto;
+                display: flex;
+                padding: 10px;
+            }
+            h1 {
+                display: flex;
+                align-items: center;
+                color: rgb(255, 211, 251);
+                flex: 1;
+                margin: 0;
+            }
+            #nav-ul {
+                list-style-image: none;
+            }
+            .nav-li {
+                display: inline-block;
+                padding: 0 10px;
+            }
+            a {
+                text-decoration: none;
+                color: rgb(255, 250, 183);
+            }
+         
+            /* main container area beneath menu */
+            main {
+                background: rgb(174, 192, 253);
+                display: flex;
+            }
+            .sidebar {
+                margin-right: 25px;
+                padding: 10px;
+            }
+            .sidebar-img {
+                width: 200px;
+            }
+            .content {
+                flex: 1;
+                padding: 15px;
+            }
+            #interests {
+                border: 6px rgb(245, 213, 255) ridge;
+                padding: 8px;
+            }
+            h2, h3 {
+                margin: 0px;
+            }
+         </style>
+    </head>
+    
+    <body>
+        <div id = all-contents>
+            <nav>
+                <h1>Moe's Hauntingly Cool and Seriously Ill Site :D</h1>
+                <ul id = nav-ul>
+                    <li class = nav-li>
+                        <a href="index.html"> Home </a>
+                    </li>
+                    <li class = nav-li>
+                        <a href="portfolio.html"> Portfolio </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <main>
+                <!--Sidebar/Image section -->
+                <div class = sidebar>
+                    <img class = sidebar-img src="https://i1.pickpik.com/photos/1005/151/659/kitten-cat-fluffy-cat-cute-preview.jpg"
+                    width="500"
+                    height="205">
+                </div>
+
+                <!-- Content Section -->
+                <div>
+                    <h2>Moe White</h2>
+                    <p>Student at Lusher Charter School</p>
+                    <!-- Interests sections -->
+                    <div id = interests>
+                        <h3>Interests</h3>
+                        <ul>
+                            <li>JRPGs</li>
+                            <li>Cats</li>
+                            <li>Drawing</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+    </body>
+</html>
