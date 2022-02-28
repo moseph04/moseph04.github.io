@@ -10,6 +10,7 @@
         steve: {assetKey: 'steve', points: 30},
         grace: {assetKey: 'grace', points: 40},
         kennedi: {assetKey: 'kennedi', points: 50}
+        
     };
     
     /**
@@ -37,7 +38,9 @@
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
         
         // example: 
-        createCollectable(type.steve, 200, 170, 6, 0.7);
+        createCollectable(type.grace, 200, 300, 2, 0.6);
+        createCollectable(type.kennedi, 430, 550, 2, 1);
+        createCollectable(type.max, 450, 70, 2, 0.99);
         
         
         
