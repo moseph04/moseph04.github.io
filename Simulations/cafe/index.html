@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Cafe</title>
+        <!--Favicon-->
+        <link rel="shortcut icon" href="imgz/coffeecup.png" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <style>
+            body {
+                background-color: rgb(226, 150, 226);
+                color:rgb(184, 4, 255);
+                font-family: FreeMono, monospace;
+            }
+            #menu, #take-order {
+                display: flex;
+                flex-direction: row;
+            }
+
+            #take-order > p {
+                padding-right: 10px;
+            }
+
+            .menu-item {
+                border: 3px solid rgb(255, 195, 242);
+            }
+
+            .menu-item > h4,
+            .menu-item > img {
+                padding: 10px;
+                padding-bottom: 5px;
+            }
+
+            img {
+                width: 250px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="all-contents">
+            <nav>
+                <h1>Cafe</h1>
+                <div id="take-order">
+                    <p>When you're ready to place your order, click here: </p>
+                    <button>Place Order</button>
+                </div>
+            </nav>
+            <main>
+                <h3>Menu</h3>
+                <div id="menu">
+                    <div id="latte" class="menu-item">
+                        <h4>1 - Latte</h4>
+                        <img src="http://4.bp.blogspot.com/--NmZwJZAxzs/VONqo0zSu0I/AAAAAAAARYs/tGDs91rgxVY/s1600/Food%2BCraver%2B-%2BCafe%2BR%26C%2B04.jpg">
+                        <h4>6.99</h4>
+                    </div>
+                    <div id="mocha" class="menu-item">
+                        <h4>2 - Cafe Mocha</h4>
+                        <img src="https://wholefully.com/wp-content/uploads/2021/06/homemade-iced-mocha-coffee-720x720.jpg">
+                        <h4>9.99</h4>
+                    </div>
+                    <div id="frapp" class="menu-item">
+                        <h4>3 - Caramel Frappuccino</h4>
+                        <img src="https://insanelygoodrecipes.com/wp-content/uploads/2021/01/Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png">
+                        <h4>4.50</h4>
+                    </div>
+                    <div id="panini" class="menu-item">
+                        <h4>4 - Grilled Panini</h4>
+                        <img src="https://www.pumpkinnspice.com/wp-content/uploads/2016/11/chicken-bacon-ranch-panini-3.jpg">
+                        <h4>7.00</h4>
+                    </div>
+                    <div id="curry" class="menu-item">
+                        <h4>5 - Katsu Curry</h4>
+                        <img src="https://i.pinimg.com/originals/52/0a/79/520a79e8ae8070a18e498fde1889b78a.jpg">
+                        <h4>10.00</h4>
+                    </div>
+                    <div id="shrimp" class="menu-item">
+                        <h4>6 - A Single Unpeeled Shrimp</h4>
+                        <img src="https://www.feednavigator.com/var/wrbm_gb_food_pharma/storage/images/publications/feed/feednavigator.com/news/r-d/balanced-protein-energy-diet-may-offer-low-cost-feed-for-farmed-shrimp/7849909-2-eng-GB/Balanced-protein-energy-diet-may-offer-low-cost-feed-for-farmed-shrimp.jpg">
+                        <h4>435.04</h4>
+                    </div>
+                    <div id="cupcake" class="menu-item">
+                        <h4>7 - Red Velvet Cupcake</h4>
+                        <img src="https://curlygirlkitchen.com/wp-content/uploads/2021/12/Red-Velvet-Cupcakes-High-Altitude-Cream-Cheese-001.jpg">
+                        <h4>5.49</h4>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <script>
+            //ALL JS CODE//
+            $('button').on('click', takeOrder);
+            function takeOrder() {
+                var total = (0);
+                var orderNumber = prompt("Ah, you're back. What'll you have? (1 item per order, order by number. Eg: for a cafe mocha, type 2)")
+                if (orderNumber === '1') {
+                    total += 6.99;
+                } else if (orderNumber === '2') {
+                    total += 9.99;
+                } else if (orderNumber === '3'){
+                    total += 4.50;
+                } else if (orderNumber === '4'){
+                    total += 7.00;
+                } else if (orderNumber === '5'){
+                    total += 10.00;
+                } else if (orderNumber === '6'){
+                    total += 435.04; alert("So, you have chosen the shrimp. That shrimp is my daughters pet, you know.");
+                } else if (orderNumber === '7'){
+                    total += 5.49;
+                } else {
+                    alert("You think you can come in here, sit at MY table, look at MY menu, and order something that's NOT on it?????? If something's not on the menu, THEN WE DON'T HAVE IT!");
+                }
+                var extras = prompt("Need any condiments or something like that?")
+                if (extras === 'ketchup', 'catsup', 'mustard', 'mayo', 'mayonnaise', 'ketchup and mustard') {
+                    total += 0.99;
+                } else if (extras === 'cream', 'sugar', 'cream and sugar'){
+                    total += 0.50;
+                } else if (extras === 'salt', 'pepper', 'salt and pepper'){
+                    total += 0.10;
+                } else if (extras === 'cocktail sauce') {
+                    total += 60.99;
+                } else {
+                    alert("This isn't some sort of class establishment, we don't have that.");
+                }
+                alert('Your total is ' + total + '. It will be out one of these days. Time is meaningless here.');
+
+            };
+    
+        </script>
+    </body>
+</html>

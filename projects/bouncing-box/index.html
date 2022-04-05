@@ -7,8 +7,8 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 100px;
-			height: 100px;
+			width: 80px;
+			height: 80px;
 			background-color: pink;
 			font-size: 300%;
 			text-align: center;
@@ -57,6 +57,13 @@
 			function changeBoxText(newText) {
 				box.text(newText);
 			}
+
+			// changes the color of the box?
+				function changeBoxColor(omgColors) {
+					var randNum0To255 = Math.random() * 255
+					var colorStr = "rgb(randNum0To255, randNum0To255, randNum0To255)"
+					box.css('background-color', colorStr);
+				}
 
 			//////////////////////////////////////////////////////////////////
 			/////////////////// YOUR CODE BELOW HERE /////////////////////////
