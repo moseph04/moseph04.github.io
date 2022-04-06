@@ -50,37 +50,42 @@
                     <div id="latte" class="menu-item">
                         <h4>1 - Latte</h4>
                         <img src="http://4.bp.blogspot.com/--NmZwJZAxzs/VONqo0zSu0I/AAAAAAAARYs/tGDs91rgxVY/s1600/Food%2BCraver%2B-%2BCafe%2BR%26C%2B04.jpg">
-                        <h4>6.99k, add sugar for 0.50</h4>
+                        <h4>6.99k</h4>
                     </div>
                     <div id="mocha" class="menu-item">
                         <h4>2 - Cafe Mocha</h4>
                         <img src="https://wholefully.com/wp-content/uploads/2021/06/homemade-iced-mocha-coffee-720x720.jpg">
-                        <h4>9.99, add sugar for 0.50</h4>
+                        <h4>9.99</h4>
                     </div>
                     <div id="frapp" class="menu-item">
                         <h4>3 - Caramel Frappuccino</h4>
                         <img src="https://insanelygoodrecipes.com/wp-content/uploads/2021/01/Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png">
-                        <h4>4.50, add sugar for 0.50</h4>
+                        <h4>4.50</h4>
                     </div>
                     <div id="panini" class="menu-item">
                         <h4>4 - Grilled Panini</h4>
                         <img src="https://www.pumpkinnspice.com/wp-content/uploads/2016/11/chicken-bacon-ranch-panini-3.jpg">
-                        <h4>7.00, add salt for 0.10, ketchup for 0.99</h4>
+                        <h4>7.00</h4>
                     </div>
                     <div id="curry" class="menu-item">
                         <h4>5 - Katsu Curry</h4>
                         <img src="https://i.pinimg.com/originals/52/0a/79/520a79e8ae8070a18e498fde1889b78a.jpg">
-                        <h4>10.00, add salt for 0.10</h4>
+                        <h4>10.00</h4>
                     </div>
                     <div id="shrimp" class="menu-item">
                         <h4>6 - A Single Unpeeled Shrimp</h4>
                         <img src="https://www.feednavigator.com/var/wrbm_gb_food_pharma/storage/images/publications/feed/feednavigator.com/news/r-d/balanced-protein-energy-diet-may-offer-low-cost-feed-for-farmed-shrimp/7849909-2-eng-GB/Balanced-protein-energy-diet-may-offer-low-cost-feed-for-farmed-shrimp.jpg">
-                        <h4>435.04, add cocktail sauce for 50.00</h4>
+                        <h4>435.04</h4>
                     </div>
                     <div id="cupcake" class="menu-item">
                         <h4>7 - Red Velvet Cupcake</h4>
                         <img src="https://curlygirlkitchen.com/wp-content/uploads/2021/12/Red-Velvet-Cupcakes-High-Altitude-Cream-Cheese-001.jpg">
                         <h4>5.49</h4>
+                    </div>
+                    <div id="condiments" class="menu-item">
+                        <h4>Condiments</h4>
+                        <img src="https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2Farchive%2F406ae26c88e25fdec049ef9373334cd720ab28d7">
+                        <h4>Ketchup: 0.99, Sugar: 0.50, Salt: 0.10, Cocktail Sauce: 50.00</h4>
                     </div>
                 </div>
             </main>
@@ -127,7 +132,7 @@
                 }
                 }
                 var total = (total);
-                var extras = prompt("Well, do ya want any condiments or something like that? (It's extra).");
+                var extras = prompt("Well, do ya want any condiments or something like that? Order by name, Eg: type ketchup.");
                 if (extras === 'ketchup'){
                     total += 0.99;
                 } else if (extras === 'sugar'){
