@@ -86,11 +86,6 @@ var init = function (window) {
                 circle.x = 0;
             }
             
-            // TODO 7 : YOUR CODE STARTS HERE //////////////////////
-            
-
-
-            // YOUR TODO 7 CODE ENDS HERE //////////////////////////
         }
         
         /////////////////////////////////////////////////////////////
