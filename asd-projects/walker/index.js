@@ -36,6 +36,7 @@ function runProgram(){
   function newFrame() {
     repositionGameItem();
     redrawGameItem();
+    outOfBounds();
   }
 
   function handleKeyDown(event) {
@@ -80,7 +81,12 @@ function runProgram(){
       $("#walker").css("top", yLocation);
     };
 
-    
+    function outOfBounds() {
+      if (xLocation === 440) {
+        ySpeed = 0;
+        xSpeed = 0;
+      }
+    };
 
     function endGame() {
       clearInterval(interval);
