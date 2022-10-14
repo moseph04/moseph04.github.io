@@ -11,7 +11,7 @@ function runProgram(){
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   $(document).on('keydown', handleKeyDown); 
-  $(document).on('keyup', handleKeyUp);                     // change 'eventType' to the type of event you want to handle
+  $(document).on('keyup', handleKeyUp);                   
   var KEY = {
     "LEFT": 37,
     "RIGHT": 39,
@@ -71,9 +71,10 @@ function runProgram(){
   
     //HELPER FUNCTIONS//
 
-    function repositionGameItem() {
+    function repositionGameItem() { 
       xLocation += xSpeed;
       yLocation += ySpeed;
+      return xLocation;
     };
 
     function redrawGameItem() {
@@ -81,11 +82,26 @@ function runProgram(){
       $("#walker").css("top", yLocation);
     };
 
-    function outOfBounds() {
-      if (xLocation === 440) {
-        ySpeed = 0;
-        xSpeed = 0;
+      //Cirlce cannot go past 400 or behind 6 on the X axis//
+    function outOfBoundsX() {
+      if (xLocation >= 400) {
+        xLocation = 400;
+      } else if (xLocation <= 6){
+        xLocation = 6;
       }
+    };
+      //Circle cannot go past 400 or behind 6 on the Y axis//
+    function outOfBoundsY(){
+      if (yLocation >= 400) {
+        yLocation = 400;
+      } else if (yLocation <= 6) {
+        yLocation = 6;
+      }
+    };
+    //handles the circle passing 400 or 6 on either axis//
+    function outOfBounds(){
+      outOfBoundsX();
+      outOfBoundsY();
     };
 
     function endGame() {
