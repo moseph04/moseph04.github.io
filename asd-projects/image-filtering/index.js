@@ -47,7 +47,7 @@ function applyFilter(filterFunction){ //to-do 4a complete
 
 // TODO 7: Create the applyFilterNoBackground function YOU ARE HERE
 function applyFilterNoBackground(){
-  var greyPixel = image[0][0];
+  const greyPixel = "rgb(150, 150, 150)";
   for (var row = 0; row < image.length; row++){ 
     image[row];
     for (var collumn = 0; collumn < image[row].length; collumn++){ 
