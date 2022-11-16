@@ -20,9 +20,11 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-  applyFilter(reddify); //to-do 4b complete
-  applyFilter(decreaseBlue);
-  applyFilter(increaseGreenByBlue);
+  //applyFilter(reddify); //to-do 4b complete
+  applyFilterNoBackground(reddify);
+  //applyFilter(decreaseBlue);
+  
+
   // do not change the below line of code
   render($("#display"), image);
 }
@@ -46,18 +48,25 @@ function applyFilter(filterFunction){ //to-do 4a complete
 };
 
 // TODO 7: Create the applyFilterNoBackground function YOU ARE HERE
-function applyFilterNoBackground(){
-  const greyPixel = "rgb(150, 150, 150)";
+function applyFilterNoBackground(filterFunction){
+  var greyPixel = "rgb(150, 150, 150)";
   for (var row = 0; row < image.length; row++){ 
     image[row];
-    for (var collumn = 0; collumn < image[row].length; collumn++){ 
+    for (var collumn = 0; collumn < image[row].length; collumn++){
     var rgbString = image[row][collumn]; 
-    var rgbNumbers = rgbStringToArray(rgbString); 
-    filterFunction(rgbNumbers); 
-    rgbString = rgbArrayToString(rgbNumbers); 
-    image[row][collumn] = rgbString; 
-  } };
-}
+    var rgbNumbers = rgbStringToArray(rgbString)
+    if(rgbString === greyPixel){
+      rgbString = rgbArrayToString(rgbNumbers);
+      image[row][collumn] = rgbString;
+    } else{
+    filterFunction(rgbNumbers);
+    rgbString = rgbArrayToString(rgbNumbers);
+    image[row][collumn] = rgbString;
+    } } } };
+    
+  
+ 
+
 
 // TODO 5: Create the keepInBounds function
 function keepInBounds(aNumber) {
