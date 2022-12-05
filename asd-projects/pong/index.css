@@ -1,21 +1,95 @@
 
 body {
-  background-color: darkgreen;
+  background-color: rgb(66, 145, 235);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  color:rgb(251, 255, 0)
 }
 
-#board {
-  width: 440px;
+#board { 
+  width: 900px;
   height: 440px;
-  border: 1px solid white;
-  background-color: black;
-  position: relative;
+  border: 10px solid white;
+  background-color: rgb(0, 83, 21);
+  position: absolute;
+  left: 500px;
+  top: 200px;
+
+} 
+
+#title {
+  position: absolute;
+  
 }
 
-#gameItem {
-  background-color: teal;
-  width: 50px;
-  height: 50px;
+#rules {
   position: absolute;
-/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+  top: 90px;
+  left: 511px;
+}
+
+#ball {
+  background-color: rgb(188, 209, 0);
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-radius: 50px;
+  left: 430px; 
+  top: 200px; 
+}
+
+#midline {
+  width: 10px;
+  height: 440px;
+  background-color: white;
+  position: absolute;
+  left: 440px;
+  top: 0px;
+} 
+
+#leftRacket {
+  width: 20px;
+  height: 100px;
+  background-color: rgb(255, 250, 182);
+  position: absolute;
+  left: 1px;
+  top: 150px;
+}
+
+#rightRacket {
+  width: 20px;
+  height: 100px;
+  background-color: rgb(255, 250, 182);
+  position: absolute;
+  left: 879px;
+  top: 150px;
+}
+
+#leftBox {
+  background-color:rgb(251, 255, 0);
+  font-size: 300%;
+  text-align: center;
+  color:rgb(0, 0, 0);
+  display: block;
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  border-radius: 30px;
+  left: 500px;
+  top: 700px;
+}
+
+
+
+#rightBox {
+  background-color:rgb(251, 255, 0);
+  font-size: 300%;
+  text-align: center;
+  color:rgb(0, 0, 0);
+  display: block;
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  border-radius: 30px;
+  left: 1280px;
+  top: 700px;
 }
