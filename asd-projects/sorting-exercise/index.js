@@ -14,7 +14,7 @@ The CSS ids you will work with are:
 ///////////////////////////////////////////////////////////////////////
 
 // TODO 2: Implement bubbleSort
-async function bubbleSort(arr){
+async function bubbleSort(arr){ //looping over the elements in an array and swapping them depending on size
     for(var i = 0; i < arr.length; i++){
       for(var j = i + 1; j < arr.length; j++){
         if (arr[i].value > arr[j].value){
@@ -27,7 +27,7 @@ async function bubbleSort(arr){
   }
 
 // TODO 3: Implement quickSort
-async function quickSort(arr, left, right){
+async function quickSort(arr, left, right){ //async makes sorting compatible with sleep function
     console.log("hi");
     if (right - left > 0){
         var index = await partition(arr, left, right);
@@ -44,7 +44,7 @@ async function quickSort(arr, left, right){
 }
 
 // TODOs 4 & 5: Implement partition
-async function partition(arr, left, right){
+async function partition(arr, left, right){ 
     console.log("eyy");
     var pivot = arr[Math.floor((right + left)/2)].value;
     while(left < right){
@@ -64,7 +64,7 @@ async function partition(arr, left, right){
 }
 
 // TODO 1: Implement swap
-function swap(arr, i, j){
+function swap(arr, i, j){ // switches i and j of the array that is entered as an argument
     var temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
