@@ -62,7 +62,10 @@ function applyFilterNoBackground(filterFunction){
     filterFunction(rgbNumbers);
     rgbString = rgbArrayToString(rgbNumbers);
     image[row][collumn] = rgbString;
-    } } } };
+     } 
+    } 
+  } 
+};
     
   
  

@@ -98,7 +98,7 @@ function runProgram(){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  function startBall(){ //NOT WORKING
+  function startBall(){ //NOT WORKING 
     ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
     ball.speedY = Math.random() * 400;
     ball.x = $("#ball").css("left", ball.speedX);
