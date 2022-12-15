@@ -18,6 +18,8 @@ function runProgram(){
     UPRR: 38,
     DOWNRR: 40,
   };
+ // const BOARD_WIDTH = $("#board").width();
+ // const BOARD_HEIGHT = $("#board").height();
   
   
   // Game Item Objects
@@ -52,6 +54,7 @@ function runProgram(){
   */
   function newFrame() {
     startBall();
+    wallCollision("#ball");
   }
   
   /* 
@@ -99,27 +102,46 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
 
   function startBall(){ //NOT WORKING 
-    ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
+    /*ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
     ball.speedY = Math.random() * 400;
     ball.x = $("#ball").css("left", ball.speedX);
-    ball.y = $("#ball").css("top", ball.speedY)
-    
+    ball.y = $("#ball").css("top", ball.speedY)*/
+    repositionBall();
+    redrawBall();
   }
 
-  //NOT WORKING
-    function moveObject(theObject){
-      function repo(theObject){
-        theObject.x += theObject.speedX;
-        theObject.y += theObject.speedY;
-        return theObject.x, theObject.y; 
-        } 
-          repo(theObject);
-     function redr(theObject){
-      $(theObject.id).css("left", theObject.x);
-      $(theObject.id).css("top", theObject.y);
-      }   
-        redr(theObject);
-  } 
+  function repositionBall(){ // having everything in the startBall function wasn't working, trying seperate functions
+    ball.x += ball.speedX;
+    ball.y += ball.speedY;
+    return ball.x;
+  }
+
+  function redrawBall(){
+    ball.speedX = (Math.random() * 5 + 2) //* (Math.random() > 0.5 ? -1 : 1);
+    ball.speedY = Math.random() * 2
+    $("#ball").css("left", ball.x);
+    $("#ball").css("top", ball.y);
+  }
+
+  function wallCollision(gameItem){
+    if(gameItem === "#ball"){
+      if(ball.x >= 870){
+        ball.x = 870;
+        ball.x = 450; //ball bounces back to center
+        ball.y = 220;
+      }
+      if(ball.y >= 410){
+        ball.y = 410;
+        ball.x = 450; //ball bounces back to center
+        ball.y = 220;
+      }
+    }
+  }
+
+  //Trouble
+    function moveObject(){
+
+    }
 
   
 
