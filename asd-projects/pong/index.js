@@ -42,8 +42,8 @@ function runProgram(){
 
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on();                           // change 'eventType' to the type of event you want to handle
-  //startBall();
+  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
+  
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -55,13 +55,17 @@ function runProgram(){
   function newFrame() {
     startBall();
     wallCollision("#ball");
+    racketMover(rightRacket, "#rightRacket", rightRacket);
+    racketMover(leftRacket, "#leftRacket", leftRacket);
+    wallCollision("#rightRacket");
+    wallCollision("#leftRacket");
   }
   
   /* 
   Called in response to events.
   */
 
-  function handleKeyUp(){
+  function handleKeyUp(event){
     if(event.which === KEY.DOWNLR){
       leftRacket.speedY = 0;
       console.log("S released");
@@ -77,7 +81,7 @@ function runProgram(){
     }
   } 
  
-  function handleKeyDown(){
+  function handleKeyDown(event){
     if(event.which === KEY.DOWNLR){
       console.log("S pressed");
       leftRacket.speedY = 5;
@@ -93,9 +97,9 @@ function runProgram(){
     }
   } 
  
-  function handleEvent(event) {
+  //function handleEvent(event) {
 
-  }
+  //}
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
@@ -122,26 +126,53 @@ function runProgram(){
     $("#ball").css("left", ball.x);
     $("#ball").css("top", ball.y);
   }
+  ///// RACKET STUFF /////
+  function repositionRacket(item){
+    item.y += item.speedY;
+    return item.y;
+  }
+
+  function redrawRacket(id, racket){ //id should be in form of "#id"
+    $(id).css("top", racket.y);
+  }
+
+  function racketMover(item, id, racket){
+    repositionRacket(item);
+    redrawRacket(id, racket);
+  }
+  ////////////////////////
 
   function wallCollision(gameItem){
     if(gameItem === "#ball"){
       if(ball.x >= 870){
         ball.x = 870;
-        ball.x = 450; //ball bounces back to center
-        ball.y = 220;
+        //ball.x = 450; //ball bounces back to center
+        //ball.y = 220;
       }
       if(ball.y >= 410){
         ball.y = 410;
-        ball.x = 450; //ball bounces back to center
-        ball.y = 220;
+        //ball.x = 450; //ball bounces back to center
+        //ball.y = 220;
+      }
+    } 
+    if(gameItem === "#rightRacket" || "#leftRacket"){
+      if(rightRacket.y >= 340){
+        rightRacket.y = 340;
+      } else if(rightRacket.y <= 6){
+        rightRacket.y = 6;
+      }
+      if(leftRacket.y >= 340){
+        leftRacket.y = 340;
+      } else if(leftRacket.y <= 6){
+        leftRacket.y = 6;
       }
     }
   }
 
-  //Trouble
-    function moveObject(){
+  
 
-    }
+  
+    
 
   
 
