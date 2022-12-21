@@ -105,11 +105,7 @@ function runProgram(){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  function startBall(){ //NOT WORKING 
-    /*ball.speedX = (Math.random() * 3 + 2) * (Math.random() > 0.5 ? -1 : 1);
-    ball.speedY = Math.random() * 400;
-    ball.x = $("#ball").css("left", ball.speedX);
-    ball.y = $("#ball").css("top", ball.speedY)*/
+  function startBall(){ //The way the ball moves is weird to me, why is it moving through the same path every time when it's movement is supposed to be random? 
     repositionBall();
     redrawBall();
   }
@@ -121,8 +117,8 @@ function runProgram(){
   }
 
   function redrawBall(){
-    ball.speedX = (Math.random() * 5 + 2) //* (Math.random() > 0.5 ? -1 : 1);
-    ball.speedY = Math.random() * 2
+    ball.speedX = (Math.random() * 5 + 2) // (Math.random() > 0.5 ? -1 : 1);
+    ball.speedY = (Math.random() * 2)
     $("#ball").css("left", ball.x);
     $("#ball").css("top", ball.y);
   }
