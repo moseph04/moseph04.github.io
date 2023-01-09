@@ -18,8 +18,6 @@ function runProgram(){
     UPRR: 38,
     DOWNRR: 40,
   };
- // const BOARD_WIDTH = $("#board").width();
- // const BOARD_HEIGHT = $("#board").height();
   
   
   // Game Item Objects
@@ -32,17 +30,25 @@ function runProgram(){
     item.height = $(id).css("height");
     item.speedX = 0;
     item.speedY = 0;
+    //item.text = $(id).text();
     console.log(item);
     return item;
   }
-  
+  //making objects
   var ball = ObjectMaker("#ball");
   var leftRacket = ObjectMaker("#leftRacket");
   var rightRacket = ObjectMaker("#rightRacket");
+  //var board = ObjectMaker("#board");
+  //var gameOver = ObjectMaker("#gameOver");
+  const BOARD_WIDTH = $("#board").width();
+  const BOARD_HEIGHT = $("#board").height();
+  var rightScore = $("rightBox").text();
+  var leftScore =  $("leftBox").text();
 
   // one-time setup
   let interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
+  startBall();
   
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -53,7 +59,7 @@ function runProgram(){
   by calling this function and executing the code inside.
   */
   function newFrame() {
-    startBall();
+    repositionBall();
     wallCollision("#ball");
     racketMover(rightRacket, "#rightRacket", rightRacket);
     racketMover(leftRacket, "#leftRacket", leftRacket);
@@ -97,31 +103,25 @@ function runProgram(){
     }
   } 
  
-  //function handleEvent(event) {
-
-  //}
-
+  
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  function startBall(){ //The way the ball moves is weird to me, why is it moving through the same path every time when it's movement is supposed to be random? 
-    repositionBall();
-    redrawBall();
+  function startBall(){ 
+    ball.x = Math.random() * 200 + 100; 
+    ball.y = Math.random() * 200 + 100; 
+    ball.speedX = (10) * Math.random() > .5 ? 3 : -3; 
+    ball.speedY = (10) * Math.random() > .5 ? 3 : -3; 
   }
 
-  function repositionBall(){ // having everything in the startBall function wasn't working, trying seperate functions
+  function repositionBall(){ 
     ball.x += ball.speedX;
     ball.y += ball.speedY;
-    return ball.x;
+    $(ball.id).css("left", ball.x); // updates the ball's x position
+    $(ball.id).css("top", ball.y);  // updates the ball's y position
   }
 
-  function redrawBall(){
-    ball.speedX = (Math.random() * 5 + 2) // (Math.random() > 0.5 ? -1 : 1);
-    ball.speedY = (Math.random() * 2)
-    $("#ball").css("left", ball.x);
-    $("#ball").css("top", ball.y);
-  }
   ///// RACKET STUFF /////
   function repositionRacket(item){
     item.y += item.speedY;
@@ -140,17 +140,27 @@ function runProgram(){
 
   function wallCollision(gameItem){
     if(gameItem === "#ball"){
-      if(ball.x >= 870){
-        ball.x = 870;
-        //ball.x = 450; //ball bounces back to center
-        //ball.y = 220;
+      /* if(overlap = true){
+        ball.speedX *= -1;
+        ball.speedY *= -1;
+      } if(overlap = false){ */
+      if(ball.x >= BOARD_WIDTH){
+        score(leftScore, "#leftBox");
+        ball.speedX *= -1;
       }
-      if(ball.y >= 410){
-        ball.y = 410;
-        //ball.x = 450; //ball bounces back to center
-        //ball.y = 220;
+      if(ball.y >= BOARD_HEIGHT){
+        ball.speedY *= -1;
       }
-    } 
+      //less than or equal to
+      if (ball.x <= 0) {
+        score(rightScore, "#rightBox");
+        ball.speedX *= -1;
+      } 
+      if (ball.y <= 0){ 
+      ball.speedY *= -1; 
+     } /* } */
+    }
+    //rackets
     if(gameItem === "#rightRacket" || "#leftRacket"){
       if(rightRacket.y >= 340){
         rightRacket.y = 340;
@@ -164,16 +174,24 @@ function runProgram(){
       }
     }
   }
+  //overlaping function
+  function overlap(){
+    if(ball.x + ball.width >= rightRacket.x){
+      return true;
+    } else if(ball.x <= leftRacket.x + leftRacket.width){
+      return true;
+    } else{
+      return false;
+    }
+  }
 
+  //scoring function
+  function score(scoreID, itemID){
+   scoreID = scoreID + 1;
+   $(itemID).text(scoreID);
+   startBall();
+  }
   
-
-  
-    
-
-  
-
-
-
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
