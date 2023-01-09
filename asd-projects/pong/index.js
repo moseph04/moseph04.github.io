@@ -141,8 +141,7 @@ function runProgram(){
   function wallCollision(gameItem){
     if(gameItem === "#ball"){
       /* if(overlap = true){
-        ball.speedX *= -1;
-        ball.speedY *= -1;
+        ball.speedX *= -1;       //THIS IS THE CALL TO overlap
       } if(overlap = false){ */
       if(ball.x >= BOARD_WIDTH){
         score(leftScore, "#leftBox");
@@ -151,14 +150,13 @@ function runProgram(){
       if(ball.y >= BOARD_HEIGHT){
         ball.speedY *= -1;
       }
-      //less than or equal to
       if (ball.x <= 0) {
         score(rightScore, "#rightBox");
         ball.speedX *= -1;
       } 
       if (ball.y <= 0){ 
       ball.speedY *= -1; 
-     } /* } */
+     } /* } */   //HERE IS overlap's CLOSING BRACKET
     }
     //rackets
     if(gameItem === "#rightRacket" || "#leftRacket"){
@@ -177,8 +175,10 @@ function runProgram(){
   //overlaping function
   function overlap(){
     if(ball.x + ball.width >= rightRacket.x){
+      console.log("collided");
       return true;
     } else if(ball.x <= leftRacket.x + leftRacket.width){
+      console.log("collided");
       return true;
     } else{
       return false;
