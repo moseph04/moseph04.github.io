@@ -36,7 +36,7 @@
   ball.x = canvas.width / 2;
   ball.y = canvas.height / 2;
   ball.xVelocity = 5;
-  ball.yVelocity = 5;
+  ball.yVelocity = -5;
 
   // add the paddles and the ball to the view
   stage.addChild(paddlePlayer, paddleCPU, ball);
@@ -92,15 +92,22 @@
     }
 
     // TODO 1: bounce the ball off the top
-    if (ball.y < 0 || ball.y > canvas.height - ball.y) {
-      ball.yVelocity *= -1;}
-
+           if(ball.y < 0){
+            ball.yVelocity *= -1;
+           }
 
     // TODO 2: bounce the ball off the bottom
-
+           if(ball.y > canvas.height){
+            ball.yVelocity *= -1;
+           }
 
     // TODO 3: bounce the ball off each of the paddles
-
+           if(ball.x >= paddleCPU.x){
+            ball.xVelocity *= -1;
+           }
+           if(ball.x <= paddlePlayer.x + paddlePlayer.width){
+            ball.xVelocity *= -1;
+           }
 
   }
 
