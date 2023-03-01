@@ -1,7 +1,7 @@
 // TODO 4: Add a parameter for your gaming library in the index.js module:
-(function(window, createjs, opspark) {
+(function(window, createjs, opspark, claudius) {
   // OUR MODULE CODE GOES BELOW HERE //
-
+  console.log(claudius);
   console.log('index.js initialized!');
   
   /*
@@ -26,7 +26,7 @@
     radius = 25, // the radius of our two circles
     shapeUp = new createjs.Shape(), // the up state: the mouse is NOT intersecting
     shapeOver = new createjs.Shape(); // the over state: the mouse IS intersecting
-
+    console.log(stage);
   /*
    * Draw two circles, up for when the mouse is not touching it, over
    * for when the mouse is touching it. Note, the createjs API for drawing
@@ -57,8 +57,11 @@
      * TODO 5: use getDistance to calculate the distance between shapeUp and 
      * the mouse. Store the result in a variable called distance:
      */
-    
-    
+      var mouse = {
+        x: stage.mouseX,
+        y: stage.mouseY
+      }
+      var distance = getDistance(shapeUp, mouse);
     
     /*
      * TODO 6: Check if the mouse is within the area of shapeUp, and set the 
@@ -100,4 +103,4 @@
   // OUR MODULE CODE GOES ABOVE HERE //
   
 // TODO 3: Pass your gaming library into the index.js module:
-}(window, window.createjs, window.opspark));
+}(window, window.createjs, window.opspark, window.claudius));

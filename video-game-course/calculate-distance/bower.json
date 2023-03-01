@@ -18,6 +18,7 @@
   ],
   "dependencies": {
     "EaselJS": "^1.0.2",
-    "V6": "^0.0.2"
+    "V6": "^0.0.2",
+    "claudius": "https://github.com/moseph04/claudius.git#^0.0.2"
   }
 }
