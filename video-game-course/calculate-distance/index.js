@@ -67,7 +67,14 @@
      * TODO 6: Check if the mouse is within the area of shapeUp, and set the 
      * alpha property of shapeUp accordingly:
      */
-    
+      /* if(distance <= 24){
+        console.log("shape over");
+        shapeUp.alpha = 0; 
+        shapeOver.alpha = 1;
+      }
+      */
+
+      (distance <= 24) ? (shapeUp.alpha = 0, shapeOver.alpha = 1) : (shapeUp.alpha = 1, shapeOver.alpha = 0)
     
     /*
      * Update the textfield with the current distance between the mouse and 
