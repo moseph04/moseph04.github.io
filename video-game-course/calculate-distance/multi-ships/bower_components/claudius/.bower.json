@@ -1,0 +1,31 @@
+{
+  "name": "claudius",
+  "homepage": "https://github.com/moseph04/claudius",
+  "authors": [
+    "moseph04 <moetuckerwhite@gmail.com>"
+  ],
+  "description": "game dev library",
+  "main": "index.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "version": "0.0.3",
+  "_release": "0.0.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.0.3",
+    "commit": "aea4b02259958a92ae326bf6eddfebf134ffc80d"
+  },
+  "_source": "https://github.com/moseph04/claudius.git",
+  "_target": "^0.0.3",
+  "_originalSource": "https://github.com/moseph04/claudius.git",
+  "_direct": true
+}
