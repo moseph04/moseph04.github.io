@@ -1,4 +1,4 @@
-(function(window, opspark, racket) {
+(function(window, opspark, racket, claudius) {
   /**
    * Creates and returns the space module. Listens for SPAWN 
    * events, adding any bodies in the event
@@ -49,28 +49,34 @@
             const bodyB = active[j];
             
             // TODO 1: Calculate hit test components
+            const distance = claudius.phyz.getDistance(bodyA, bodyB);
             
-            
-              
+            // add the radii
+            //   
             // TODO 2: Do collision check: how do we know if bodies are colliding?
-            if(/* replace with collision check */ false) {
-              // console.log('hit!');
+            if(distance <= bodyA.radius + bodyB.radius) {
+              console.log('hit!');
+              //console.log(bodyB);
+              
               
               // TODO 3: Calculate springToX and springToY 
-              
-              
+              angleOfApproach = Math.atan2((bodyB.x - bodyA.x), (bodyB.y - bodyA.y));
+              springToX = ((Math.cos(angleOfApproach)) * (bodyA.radius + bodyB.radius)) + bodyA.x;
+              springToY = ((Math.sin(angleOfApproach)) * (bodyA.radius + bodyB.radius)) + bodyA.y;
                 
               // TODO 4: Calculate acceleration to spring-to point, factor in dampeningForce
-              
+              accelerationOnX = (springToX - bodyB.x) * dampeningForce;
+              accelerationOnY = (springToY - bodyB.y) * dampeningForce;
               
               
               // TODO 5: Apply acceleration to bodyB
-              
+              bodyB.velocityX = bodyB.velocityX + accelerationOnX;
+              bodyB.velocityY = bodyB.velocityY + accelerationOnY;
               
               
               // TODO 6: Apply inverse acceleration to bodyA
-              
-              
+              bodyA.velocityX = bodyA.velocityX - accelerationOnX;
+              bodyA.velocityY = bodyA.velocityY - accelerationOnY;
               
             }
           }
@@ -78,4 +84,4 @@
       }
     };
   };
-}(window, window.opspark, window.opspark.racket));
+}(window, window.opspark, window.opspark.racket, window.claudius));
